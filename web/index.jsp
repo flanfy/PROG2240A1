@@ -23,7 +23,7 @@
                 Assignment 1 
                 Phillip Lu
                 Devon Tomlin
-                Shakir Hansrod          
+                Shakir Hansrod        
             </p>
             <p>Current Date and Time:<br><br><%=new java.util.Date()%></p>
         </section>
