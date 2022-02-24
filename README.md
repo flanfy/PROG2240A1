@@ -4,4 +4,4 @@
 
 ### Java Web Technologies Assignment 1
 
-This application is a very simple JSP web application (prototype) that that allows a user to register an account.
+This application is a very simple JSP web project (prototype) that that allows a user to register an account.
