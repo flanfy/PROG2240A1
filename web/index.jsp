@@ -18,14 +18,12 @@
             </header>
         <section>
             <h1>Java Web Technologies: Section 1</h1>
-            <p>
-                Pair Programming Team:
-                Assignment 1 
-                Phillip Lu
-                Devon Tomlin
-                Shakir Hansrod        
-            </p>
-            <p>Current Date and Time:<br><br><%=new java.util.Date()%></p>
+            
+            <p>Pair Programming Team: <b>Phillip Lu, Devon Tomlin, Shakir Hansrod</b></p>
+            
+            <h2>Assignment 1</h2>            
+            <p>Current Date and Time:</p>
+            <h3><%=new java.util.Date()%></></h3>
         </section>
     </body>
     <jsp:include page="footer.jsp"></jsp:include>

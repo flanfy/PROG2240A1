@@ -13,6 +13,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <p>&copy Phillip Lu, Devon Tomlin, Shakir Hansrod</p>
+        <footer>        
+            &copy Copyright 2022 Phillip Lu, Devon Tomlin, Shakir Hansrod
+        </footer>
     </body>
 </html>
