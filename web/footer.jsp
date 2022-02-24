@@ -1,7 +1,7 @@
 <%-- 
     Document   : Footer
     Created on : 20-Feb-2022, 10:11:11 AM
-    Author     : Phillip
+    Author     : Phillip, Devon
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

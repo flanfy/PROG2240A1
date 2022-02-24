@@ -1,7 +1,7 @@
 <%-- 
     Document   : Banner
     Created on : 20-Feb-2022, 10:11:01 AM
-    Author     : Phillip
+    Author     : Phillip, Devon
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -22,9 +22,11 @@
         </header>
         <div data-iconpos="top">
                 <ul id="navbar">
-                    <li id="derp"><a href="index.jsp" id="green">Home</a></li>
-                    <li id="derp"><a href="register.jsp" id="green">Register</a></li>
-                    <li id="derp"><a href="admin" id="green">Admin</a></li>
+                    <div>                     
+                        <b><li id="navbarItem"><a href="index.jsp" >Home</a></li>
+                        <li id="navbarItem"><a href="register.jsp" >Register</a></li>
+                        <li id="navbarItem"><a href="admin" ">Admin</a></li></b>
+                    </div>
                 </ul>
             </div>
     </body>

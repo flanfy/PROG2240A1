@@ -7,7 +7,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : Devon, Phillip
 */
 
-
 #html, body {
     padding-left: 15px;
     padding-right: 15px;
@@ -28,20 +27,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     width: 95%;
 }
 
-#navbar > li {
-    padding: 10px;
+#navbarItem {
+    display: inline;
+    padding-left: 10px;
+    border-left: solid black 2px;
+    color: blue;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-#derp {
-    display: inline;
+#navbarItem > a {
+    color: darkgreen;
 }
 
 #title{
     color: goldenrod;
-}
-
-#green {
-    color:darkgreen;
 }
 
 img {
@@ -60,4 +60,19 @@ footer {
     border-top: solid goldenrod 2px;
     text-align: right;
     padding-top: 10px;
+}
+
+section {
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+
+label {
+    text-align: left;
+    display: inline-block;
+    width: 100px;
+}
+
+#formButtons {
+    padding-left: 105px;
 }
