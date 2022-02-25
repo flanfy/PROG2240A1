@@ -67,10 +67,18 @@ section {
     padding-bottom: 20px;
 }
 
-label {
+#registerSection label {
     text-align: left;
     display: inline-block;
     width: 100px;
+}
+
+#diplayMemberSection label {
+    text-align: left;
+    display: inline-block;
+    width: 150px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 #formButtons {
