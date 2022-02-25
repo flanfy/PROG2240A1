@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="styles/main.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>PLDTSH Programming Club</title>
     </head>
     <body>
         <header data-role="header" data-position="fixed" data-theme="a">
@@ -19,9 +19,12 @@
         <section>
             <h1>Java Web Technologies: Section 1</h1>
             
-            <p>Pair Programming Team: <b>Phillip Lu, Devon Tomlin, Shakir Hansrod</b></p>
+            <p>Pair Programming Team:</p>
             
-            <h2>Assignment 1</h2>            
+            <h2>Assignment 1</h2>
+            <h2>Driver: Phillip Lu</h2>
+            <h2>Driver: Devon Tomlin</h2>
+            <h2>Observer: Shakir Hansrod</h2>         
             <p>Current Date and Time:</p>
             <h3><%=new java.util.Date()%></></h3>
         </section>

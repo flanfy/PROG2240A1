@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="styles/main.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>PLDTSH Programming Club</title>
     </head>
     <body>
         <header data-role="header" data-position="fixed" data-theme="a">
@@ -18,13 +18,13 @@
         </header>
         
         <section id="diplayMemberSection">
-            <h1>Hello World!</h1>
+            <h1>Thanks for joining our club!</h1>
             <p>Here is the information that you entered:</p>
                 <b><label>Full Name:</label></b>
                 <span>${param["fullName"]}</span><br>
                 <b><label>Email:</label></b>
                 <span>${param["email"]}</span><br>
-                <b><label>Phone Number:</label></b>
+                <b><label>Phone:</label></b>
                 <span>${param["phoneNumber"]}</span><br>
                 <b><label>IT Program:</label></b>
                 <span>${param["programSelection"]}</span><br>
