@@ -28,7 +28,7 @@ public class member implements Serializable {
 
     }
 
-public member(String name, String email, String phone, String program, int year) {
+public member(String firstName, String lastName, String email, String phone, String program, int year) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

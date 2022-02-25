@@ -17,7 +17,7 @@
             <img src="images/pldtsh-icon.png" alt="penguin"/>
             <div id="header">
                 <h1 id="title">PLDTSH Computer Programming Club</h1>
-                <h2 id="green"><i>IT@Conestoga</i></h2>
+                <h2 style="color:darkgreen;"><i>IT@Conestoga</i></h2>
             </div>
         </header>
         <div data-iconpos="top">

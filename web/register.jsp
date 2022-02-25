@@ -32,7 +32,7 @@
                     <input type="text" id="txtPhone" value="${member.phone}" style="width:100px">
                 </div><br>
                 <div>
-                    <b><label for="txtTypeModify">IT Program:</label></b> 
+                    <b><label for="cboProgram">IT Program:</label></b> 
                     <select id="cboProgram" name="cboProgram" value="${member.program}">
                         <option value="CAS">CAS</option>
                         <option value="SQATE">SQATE</option>
