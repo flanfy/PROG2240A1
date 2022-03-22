@@ -25,7 +25,7 @@
                     <div>                     
                         <b><li id="navbarItem"><a href="index.jsp" >Home</a></li>
                         <li id="navbarItem"><a href="register.jsp" >Register</a></li>
-                        <li id="navbarItem"><a href="admin" ">Admin</a></li></b>
+                        <li id="navbarItem"><a href="admin.jsp" ">Admin</a></li></b>
                     </div>
                 </ul>
             </div>
