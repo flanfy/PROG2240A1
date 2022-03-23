@@ -7,14 +7,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : Devon, Phillip
 */
 
-#html, body {
+html{
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 10px;
+    padding-top: 10px;
+    background: linear-gradient(to bottom, #ffffff 0%, #ffcc99 100%);
+}
+
+body {
+    padding-left: 20px;
+    padding-right: 20px;
     border-bottom: solid black 1px;
     border-top: solid black 1px;
     border-left: solid black 1px;
     border-right: solid black 1px;
+    background-color: white; 
 }
 
 #navbar {
