@@ -5,6 +5,7 @@
 package club.admin;
 
 import club.business.Book;
+import club.data.BookIO;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -27,48 +28,69 @@ public class PLDTSHAddBookServlet extends HttpServlet
         ServletContext ctx = getServletContext();
         String path = ctx.getRealPath("/WEB-INF/books.txt");
 
+        
         String bookCode = "";
         String bookDescription = "";
         String quantityStr = "";
-        
-        if (quantityStr == null || quantityStr.isEmpty()) 
-        {
-            quantityStr = "0";
-        }
-
-        int bookQuantity = Integer.parseInt(quantityStr);
-        
-        // store data in User object
+        int bookQuantity = 0;
         Book newBook = new Book(bookCode, bookDescription, bookQuantity);
-        request.setAttribute("book", newBook);
-        
-        // validate the inputs
-        String message = "";
-        String url = "";
+        String url = "/PLDTSHAddBook.jsp";
 
-        if (bookCode == null || bookCode == "")
-        {
-            message += "Error Message. <br />";
+        String action = request.getParameter("action");
+
+        if (action == null) {
+            action = "";
         }
-        if (bookDescription == null || bookDescription == "" || bookDescription.length() < 3)
-        {
-            message += "Error Message. <br />";
+
+        if (action.equals("Save")) {
+
+            bookCode = request.getParameter("code");
+            bookDescription = request.getParameter("description");
+            quantityStr = request.getParameter("quantity");
+
+            if (quantityStr == null || quantityStr.isEmpty()) {
+                quantityStr = "0";
+            }
+
+            bookQuantity = Integer.parseInt(quantityStr);
+
+            // store data in User object
+            
+            
+
+            // validate the inputs
+            String message = "";
+            
+
+            if (bookCode == null || bookCode == "")
+            {
+                message += "Book code is required. <br />";
+            }
+            if (bookDescription == null || bookDescription == "" || bookDescription.length() < 3)
+            {
+                message += "Description must have at least 3 characters. <br />";
+            }
+            if (bookQuantity <= 0)
+            {
+                message += "Quantity must be a positive integer. <br />";
+            }
+            if (message == "") 
+            {
+                BookIO.insert(newBook, path);
+                url = "/PLDTSHDisplayBooks.jsp";
+            }
+            else
+            {
+                request.setAttribute("message", message);
+                url = "/PLDTSHAddBook.jsp";
+            }
         }
-        if (bookQuantity <= 0)
-        {
-            message += "Error Message. <br />";
-        }
-        if (message == "") 
-        {
-            // Call the insert() method of BookIO class.
-            url = "/XXYYDisplayBooks";
-        }
-        else
-        {
-            request.setAttribute("message", message);
-            url = "/XXYYAddBook.jsp";
-        }
+
         
+        request.setAttribute("code", bookCode);
+        request.setAttribute("description", bookDescription);       
+        request.setAttribute("quantity", bookQuantity);     
+        request.setAttribute("book", newBook);    
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request,response);
     }
