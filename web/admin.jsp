@@ -1,7 +1,7 @@
 <%-- 
     Document   : PLDTSHAdmin
     Created on : 21-Mar-2022, 1:53:48 PM
-    Author     : Phillip
+    Author     : Phillip, Devon
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,9 +19,8 @@
         <section>
             <h1>Admin : Data Maintenance</h1>
              <div>
-                 <a style="color:darkgreen;" href="PLDTSHDisplayBooks.jsp" action="PLDTSHDisplayBooks">Maintain Books</a></li>
+                 <a href="PLDTSHDisplayBooks" style="color:darkgreen;">Maintain Books</a>
              </div>
-
         </section>
     </body>
     <jsp:include page="footer.jsp"></jsp:include>

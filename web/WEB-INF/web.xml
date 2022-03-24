@@ -6,21 +6,13 @@
 	 version="3.1">
     <servlet>
         <servlet-name>PLDTSHDisplayBooksServlet</servlet-name>
-        <servlet-class>controller.PLDTSHDisplayBooksServlet</servlet-class>
-        </servlet>
-    <servlet-mapping>
-        <servlet-name>PLDTSHDisplayBooksServlet</servlet-name>
-        <url-pattern>/PLDTSHDisplayBooks</url-pattern>
-    </servlet-mapping>
+        <servlet-class>club.admin.PLDTSHDisplayBooksServlet</servlet-class>
+    </servlet>
     
     <servlet>
-        <servlet-name>PLDTSHAddBooksServlet</servlet-name>
-        <servlet-class>controller.PLDTSHAddBooksServlet</servlet-class>
-        </servlet>
-    <servlet-mapping>
-        <servlet-name>PLDTSHAddBooksServlet</servlet-name>
-        <url-pattern>/PLDTSHAddBooks</url-pattern>
-    </servlet-mapping>
+        <servlet-name>PLDTSHAddBookServlet</servlet-name>
+        <servlet-class>club.admin.PLDTSHAddBookServlet</servlet-class>
+    </servlet>
     
     <session-config>
         <session-timeout>
