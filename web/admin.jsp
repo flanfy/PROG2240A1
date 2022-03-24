@@ -14,9 +14,15 @@
     </head>
     <body>
         <header data-role="header" data-position="fixed" data-theme="a">
-            <jsp:include page="banner.jsp"></jsp:include>
-        </header>
+                <jsp:include page="banner.jsp"></jsp:include>
+            </header>
+        <section>
+            <h1>Admin : Data Maintenance</h1>
+             <div>
+                 <a style="color:darkgreen;" href="PLDTSHDisplayBooks.jsp" action="PLDTSHDisplayBooks">Maintain Books</a></li>
+             </div>
 
+        </section>
     </body>
     <jsp:include page="footer.jsp"></jsp:include>
 </html>
