@@ -16,6 +16,7 @@
     </header>
     <body>
         <h1>List of Books</h1>
+<<<<<<< HEAD
         <section>
             <table> 
                 <tr style="border: 1px solid;">
@@ -34,6 +35,28 @@
             </table>
         </section>
         <button>Add Book</button>
+=======
+        <form>
+            <section>
+                <table> 
+                    <tr>
+                        <th>Code</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                    </tr>
+                    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+                    <c:forEach var="item" items="${books}">
+                    <tr>
+                        <td>${item.code}</td>
+                        <td>${item.description}</td>
+                        <td>${item.quantity}</td>
+                    </tr>
+                    </c:forEach>
+                </table>
+            <button type="submit" formaction="PLDTSHAddBook" formmethod="post">Add Book</button>
+            </section>
+        </form>
+>>>>>>> 8ada013778ad1927464ec2addbe3d95ac5b89cc9
     </body>
     <jsp:include page="footer.jsp"></jsp:include>
 </html>
