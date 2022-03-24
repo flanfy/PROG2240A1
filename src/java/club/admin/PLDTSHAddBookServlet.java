@@ -77,7 +77,7 @@ public class PLDTSHAddBookServlet extends HttpServlet
             if (message == "") 
             {
                 BookIO.insert(newBook, path);
-                url = "/PLDTSHDisplayBooks.jsp";
+                url = "/PLDTSHDisplayBooks";
             }
             else
             {
@@ -97,6 +97,12 @@ public class PLDTSHAddBookServlet extends HttpServlet
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
+        processRequest(request, response);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
         processRequest(request, response);
     }
