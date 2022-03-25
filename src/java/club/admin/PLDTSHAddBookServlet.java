@@ -33,9 +33,8 @@ public class PLDTSHAddBookServlet extends HttpServlet
         String bookDescription = "";
         String quantityStr = "";
         int bookQuantity = 0;
-        Book newBook = new Book(bookCode, bookDescription, bookQuantity);
         String url = "/PLDTSHAddBook.jsp";
-
+        Book newBook = new Book();
         String action = request.getParameter("action");
 
         if (action == null) {
@@ -55,12 +54,8 @@ public class PLDTSHAddBookServlet extends HttpServlet
             bookQuantity = Integer.parseInt(quantityStr);
 
             // store data in User object
-            
-            
-
             // validate the inputs
             String message = "";
-            
 
             if (bookCode == null || bookCode == "")
             {
@@ -76,6 +71,10 @@ public class PLDTSHAddBookServlet extends HttpServlet
             }
             if (message == "") 
             {
+                newBook.setCode(bookCode);
+                newBook.setDescription(bookDescription);
+                newBook.setQuantity(bookQuantity);
+
                 BookIO.insert(newBook, path);
                 url = "/PLDTSHDisplayBooks";
             }
@@ -85,24 +84,17 @@ public class PLDTSHAddBookServlet extends HttpServlet
                 url = "/PLDTSHAddBook.jsp";
             }
         }
-
-        
         request.setAttribute("code", bookCode);
         request.setAttribute("description", bookDescription);       
         request.setAttribute("quantity", bookQuantity);     
         request.setAttribute("book", newBook);    
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request,response);
+        
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-    {
-        processRequest(request, response);
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
         processRequest(request, response);
     }
