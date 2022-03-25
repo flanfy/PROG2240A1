@@ -24,10 +24,10 @@ public class PLDTSHAddBookServlet extends HttpServlet
     // TODO: Finish implementation of adding book
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
+
         response.setContentType("text/html;charset=UTF-8");
         ServletContext ctx = getServletContext();
         String path = ctx.getRealPath("/WEB-INF/books.txt");
-
         
         String bookCode = "";
         String bookDescription = "";
