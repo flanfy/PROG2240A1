@@ -9,8 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="styles/main.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
+    <header data-role="header" data-position="fixed" data-theme="a">
+                <jsp:include page="banner.jsp"></jsp:include>
+    </head
     <body>
         <h1>Java Error</h1>
         <p>Sorry, Java has thrown an exception.</p>
@@ -20,4 +24,5 @@
         <p>Type: ${pageContext.exception["class"]}</p>
         <p>Message: ${pageContext.exception.message}</p>
     </body>
+    <jsp:include page="footer.jsp"></jsp:include>
 </html>
