@@ -36,8 +36,7 @@ public class PLDTSHCartServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 // setup loanitems
-        ServletContext context = this.getServletContext();
-        ArrayList<Book> loanItems = (ArrayList<Book>) context.getAttribute("loanitems");
+
 // Create/save a loan cart object (instantiated from ECart class) in the session object
         HttpSession mySession = request.getSession();
         ECart myCart = (ECart) mySession.getAttribute("myCart");
