@@ -9,6 +9,9 @@ import club.business.ECart;
 import club.business.ELoan;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,16 +35,26 @@ public class PLDTSHCartServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ECart deleteCart;
+// setup loanitems
+        ServletContext context = this.getServletContext();
+        ArrayList<Book> loanItems = (ArrayList<Book>) context.getAttribute("loanitems");
+// Create/save a loan cart object (instantiated from ECart class) in the session object
         HttpSession mySession = request.getSession();
-        if (mySession.getAttribute("myCart") != null) {
-            deleteCart = (ECart) mySession.getAttribute("myCart");
-            for (Book item : deleteCart.getItems()) {
-                ELoan.addToQOH(loanItems, item.getCode(), item.getQuantity());
-            }
-            deleteCart = new ECart();
-            mySession.setAttribute("myCart", deleteCart);
+        ECart myCart = (ECart) mySession.getAttribute("myCart");
+        if (myCart == null) {
+            myCart = new ECart();
+        };
+        String reserve = request.getParameter("action");
+        String reserveCode = (String) request.getParameter("code");
+        if (reserve != null && (reserveCode != "" && reserveCode != null)) {
+            Book tempBook = ELoan.findItem(loanItems, reserveCode);
+            myCart.addItem(tempBook);
+            ELoan.subtractFromQOH(loanItems, reserveCode, 1);
+            mySession.setAttribute("myCart", myCart);
         }
+// forward the control to XXYYECart.jsp page
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PLDTSHECart.jsp");
+        dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

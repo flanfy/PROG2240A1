@@ -32,22 +32,17 @@ public class PLDTSHClearCartServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-// setup loanitems
-// Create/save a loan cart object (instantiated from ECart class) in the session object
+        ECart deleteCart;
+
         HttpSession mySession = request.getSession();
-        ECart myCart = (ECart) mySession.getAttribute("myCart");
-        if (myCart == null) {
-            myCart = new ECart();
-        };
-        String reserve = request.getParameter("action");
-        String reserveCode = (String) request.getParameter("code");
-        if (reserve != null && (reserveCode != "" && reserveCode != null)) {
-            Book tempBook = ELoan.findItem(loanItems, reserveCode);
-            myCart.addItem(tempBook);
-            ELoan.subtractFromQOH(loanItems, reserveCode, 1);
-            mySession.setAttribute("myCart", myCart);
+        if (mySession.getAttribute("myCart") != null) {
+            deleteCart = (ECart) mySession.getAttribute("myCart");
+            for (Book item : deleteCart.getItems()) {
+                ELoan.addToQOH(loanItems, item.getCode(), item.getQuantity());
+            }
+            deleteCart = new ECart();
+            mySession.setAttribute("myCart", deleteCart);
         }
-// forward the control to XXYYECart.jsp page
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

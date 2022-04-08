@@ -39,7 +39,7 @@ public class PLDTSHLoanServlet extends HttpServlet {
 // Call loadItems method from ELoan.java class which takes path as input and result is stored in loanItems 
             context.setAttribute("loanitems", loanItems);
         }
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/XXYYELoan.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PLDTSHELoan.jsp");
         dispatcher.forward(request, response);
     }
 

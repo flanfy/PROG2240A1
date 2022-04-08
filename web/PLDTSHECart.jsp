@@ -28,9 +28,9 @@
                     <c:set var="count" scope="page" value="0"/>
                     <c:forEach var="book" items="${sessionScope.myCart.items}">
                         <tr>
-                            <td align="left">${______}</td> // Code
-                            <td align="left">${_______}</td> // Description
-                            <td align="right">${______}</td> // Quantity
+                            <td align="left">${book.code}</td> // Code
+                            <td align="left">${book.description}</td> // Description
+                            <td align="right">${book.quantity}</td> // Quantity
                         </tr>
                         <c:set var="count" scope="page" value="${count+book.quantity}"/>
                     </c:forEach>
