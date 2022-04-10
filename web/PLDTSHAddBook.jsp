@@ -40,7 +40,7 @@
                 </tr><br>
                 <tr>
                     <input type="submit" value="Save"/>
-                    <input type="submit" value="Cancel"/> 
+                    <a href="PLDTSHDisplayBooks"><button type="button">Cancel</button></a>
                 </tr>
                 </table>
                 
