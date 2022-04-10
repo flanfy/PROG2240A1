@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="styles/main.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
     <header data-role="header" data-position="fixed" data-theme="a">
@@ -23,25 +24,26 @@
                 
                 <table>
                     <tr>
-                    <td colspan="2" align="center"><font color="red"/>${message}</td>
-                </tr>
-                
-                <tr> 
-                    <b><label for="code">Code:</label></b>
-                    <input type="text" id="code" name="code" value="${newBook.code}" style="width:200px">
-                </tr><br>
-                <tr> 
-                    <b><label for="description">Description:</label></b>
-                    <input type="text" id="description" name="description" value="${newBook.description}" style="width:200px" >
-                </tr><br>
-                <tr> 
-                    <b><label for="quantity">Quantity</label></b>
-                    <input type="text" id="quantity" name="quantity" value="${newBook.quantity}" style="width:200px">
-                </tr><br>
-                <tr>
-                    <input type="submit" value="Save"/>
-                    <a href="PLDTSHDisplayBooks"><button type="button">Cancel</button></a>
-                </tr>
+
+                        <td colspan="2" align="center"><font color="red"/>${message}</td>
+                    </tr>
+
+                    <tr> 
+                        <b><label for="code">Code:</label></b>
+                        <input type="text" id="code" name="code" value="${newBook.code}" style="width:200px">
+                    </tr><br>
+                    <tr> 
+                        <b><label for="description">Description:</label></b>
+                        <input type="text" id="description" name="description" value="${newBook.description}" style="width:200px" >
+                    </tr><br>
+                    <tr> 
+                        <b><label for="quantity">Quantity</label></b>
+                        <input type="text" id="quantity" name="quantity" value="${newBook.quantity}" style="width:200px">
+                    </tr><br>
+                    <tr>
+                        <input type="submit" value="Save"/>
+                        <input type="submit" formaction="/PLDTSHClub/PLDTSHDisplayBooks" value="Cancel"/> 
+                    </tr>
                 </table>
                 
             </form>
