@@ -17,28 +17,29 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Phillip
+ * @author Phillip, Devon
  */
-public class PLDTSHClearCartServlet extends HttpServlet {
-
+public class PLDTSHClearCartServlet extends HttpServlet 
+{
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
-     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
         ECart deleteCart;
 
         HttpSession mySession = request.getSession();
-        if (mySession.getAttribute("myCart") != null) {
+        if (mySession.getAttribute("myCart") != null) 
+        {
             deleteCart = (ECart) mySession.getAttribute("myCart");
-            for (Book item : deleteCart.getItems()) {
-                ELoan.addToQOH(loanItems, item.getCode(), item.getQuantity());
+            for (Book item : deleteCart.getItems()) 
+            {
+                //ELoan.addToQOH(loanItems, item.getCode(), item.getQuantity());
             }
             deleteCart = new ECart();
             mySession.setAttribute("myCart", deleteCart);
@@ -55,8 +56,8 @@ public class PLDTSHClearCartServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
         processRequest(request, response);
     }
 
@@ -69,8 +70,8 @@ public class PLDTSHClearCartServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
         processRequest(request, response);
     }
 
@@ -80,8 +81,8 @@ public class PLDTSHClearCartServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+    public String getServletInfo() 
+    {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }

@@ -19,7 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Phillip
  */
-public class PLDTSHLoanServlet extends HttpServlet {
+public class PLDTSHLoanServlet extends HttpServlet 
+{
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,13 +31,14 @@ public class PLDTSHLoanServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
         ServletContext context = this.getServletContext();
         String path = context.getRealPath("/WEB-INF/books.txt");
         ArrayList<Book> loanItems = (ArrayList<Book>) context.getAttribute("loanitems");
-        if (loanItems == null) {
-// Call loadItems method from ELoan.java class which takes path as input and result is stored in loanItems 
+        if (loanItems == null) 
+        {
+            // Call loadItems method from ELoan.java class which takes path as input and result is stored in loanItems 
             context.setAttribute("loanitems", loanItems);
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PLDTSHELoan.jsp");
@@ -53,8 +55,8 @@ public class PLDTSHLoanServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
         processRequest(request, response);
     }
 
@@ -67,8 +69,8 @@ public class PLDTSHLoanServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
         processRequest(request, response);
     }
 
@@ -78,8 +80,8 @@ public class PLDTSHLoanServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+    public String getServletInfo() 
+    {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }

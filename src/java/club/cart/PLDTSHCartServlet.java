@@ -20,10 +20,11 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Phillip
+ * @author Phillip, Devon
  */
-public class PLDTSHCartServlet extends HttpServlet {
-
+public class PLDTSHCartServlet extends HttpServlet 
+{
+/*
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -33,25 +34,27 @@ public class PLDTSHCartServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-// setup loanitems
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
+        // setup loanitems
 
-// Create/save a loan cart object (instantiated from ECart class) in the session object
+        // Create/save a loan cart object (instantiated from ECart class) in the session object
         HttpSession mySession = request.getSession();
         ECart myCart = (ECart) mySession.getAttribute("myCart");
-        if (myCart == null) {
+        if (myCart == null) 
+        {
             myCart = new ECart();
         };
         String reserve = request.getParameter("action");
         String reserveCode = (String) request.getParameter("code");
-        if (reserve != null && (reserveCode != "" && reserveCode != null)) {
-            Book tempBook = ELoan.findItem(loanItems, reserveCode);
-            myCart.addItem(tempBook);
-            ELoan.subtractFromQOH(loanItems, reserveCode, 1);
+        if (reserve != null && (reserveCode != "" && reserveCode != null)) 
+        {
+            //Book tempBook = ELoan.findItem(loanItems, reserveCode);
+            //myCart.addItem(tempBook);
+            //ELoan.subtractFromQOH(loanItems, reserveCode, 1);
             mySession.setAttribute("myCart", myCart);
         }
-// forward the control to XXYYECart.jsp page
+        // forward the control to XXYYECart.jsp page
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PLDTSHECart.jsp");
         dispatcher.forward(request, response);
     }
@@ -66,8 +69,8 @@ public class PLDTSHCartServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
         processRequest(request, response);
     }
 
@@ -80,8 +83,8 @@ public class PLDTSHCartServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
         processRequest(request, response);
     }
 
@@ -91,8 +94,8 @@ public class PLDTSHCartServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+    public String getServletInfo() 
+    {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }
