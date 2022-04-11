@@ -19,25 +19,28 @@
             <form>
                 <section>
                     <table> 
-                        <tr>
-                            <th style="border: 1px solid;">Code</th>
-                            <th style="border: 1px solid;">Description</th>
-                            <th style="border: 1px solid;">Quantity</th>
-                        </tr>
+                    <tr>
+                        <th>Code</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                    </tr>
                     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
                     <c:set var="count" scope="page" value="0"/>
                     <c:forEach var="book" items="${sessionScope.myCart.items}">
-                        <tr>
-                            <td align="left">${book.code}</td> // Code
-                            <td align="left">${book.description}</td> // Description
-                            <td align="right">${book.quantity}</td> // Quantity
-                        </tr>
-                        <c:set var="count" scope="page" value="${count+book.quantity}"/>
+                    <tr>
+                        <td align="left">${book.code}</td> 
+                        <td align="left">${book.description}</td> 
+                        <td align="right">${book.quantity}</td> 
+                    </tr>
+                    <c:set var="count" scope="page" value="${count+book.quantity}"/>
                     </c:forEach>
                 </table>
-                <button type="submit" formaction="PLDTSHAddBook" formmethod="post">Add Book</button>
+                <p>Total: ${count} </p>
             </section>
         </form>
+        <br>
+        <a href="PLDTSHClearCart" >Clear the cart</a> <br>
+        <a href="PLDTSHLoan" >Return to eLoan</a>
     </body>
     <jsp:include page="footer.jsp"></jsp:include>
 </html>

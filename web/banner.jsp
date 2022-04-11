@@ -25,8 +25,8 @@
                     <div>                     
                         <b><li id="navbarItem"><a href="index.jsp" >Home</a></li>
                         <li id="navbarItem"><a href="register.jsp" >Register</a></li>
-                        <li id="navbarItem"><a href="PLDTSHELoan.jsp" >eLoan</a></li>
-                        <li id="navbarItem"><a href="PLDTSHECart.jsp" >eCart</a></li>
+                        <li id="navbarItem"><a href="PLDTSHLoan" >eLoan</a></li>
+                        <li id="navbarItem"><a href="PLDTSHCart" >eCart</a></li>
                         <li id="navbarItem"><a href="admin.jsp" ">Admin</a></li></b>
                     </div>
                 </ul>

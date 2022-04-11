@@ -5,6 +5,7 @@
 package club.cart;
 
 import club.business.Book;
+import club.business.ELoan;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Phillip
+ * @author Phillip, Devon
  */
 public class PLDTSHLoanServlet extends HttpServlet 
 {
@@ -35,12 +36,13 @@ public class PLDTSHLoanServlet extends HttpServlet
     {
         ServletContext context = this.getServletContext();
         String path = context.getRealPath("/WEB-INF/books.txt");
-        ArrayList<Book> loanItems = (ArrayList<Book>) context.getAttribute("loanitems");
+        ArrayList<Book> loanItems = (ArrayList<Book>) context.getAttribute("loanItems");
         if (loanItems == null) 
         {
-            // Call loadItems method from ELoan.java class which takes path as input and result is stored in loanItems 
-            context.setAttribute("loanitems", loanItems);
+            loanItems = ELoan.loadItems(path);
+            context.setAttribute("loanItems", loanItems);
         }
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PLDTSHELoan.jsp");
         dispatcher.forward(request, response);
     }
