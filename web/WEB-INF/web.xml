@@ -20,6 +20,10 @@
         <servlet-name>PLDTSHClearCartServlet</servlet-name>
         <servlet-class>club.cart.PLDTSHClearCartServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PLDTSHMemberAdmin</servlet-name>
+        <servlet-class>club.admin.PLDTSHMemberAdminController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PLDTSHLoanServlet</servlet-name>
         <url-pattern>/PLDTSHLoan</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>PLDTSHClearCartServlet</servlet-name>
         <url-pattern>/PLDTSHClearCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PLDTSHMemberAdmin</servlet-name>
+        <url-pattern>/PLDTSHMemberAdminController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
