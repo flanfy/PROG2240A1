@@ -4,9 +4,7 @@
  */
 package club.business;
 
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -23,22 +21,72 @@ public class PLDTSHMemberTest {
     @BeforeClass
     public static void setUpClass() {
     }
+
+    @Test
+    public void testGetFullName() {
+            Member member = new Member();
+            String expected = "John Smith";
+            member.setFullName(expected);
+            String actual = member.getFullName();
+            assertEquals(expected, actual);
+    }
     
+    @Test
+    public void TestGetEmailAddress() {
+            Member member = new Member();
+            String expected = "JS@gmail.com";
+            member.setEmailAddress(expected);
+            String actual = member.getEmailAddress();
+            assertEquals(expected, actual);
+    }
+
+    @Test
+        public void TestGetPhone() {
+                Member member = new Member();
+                String expected = "123-456-7890";
+                member.setPhoneNumber(expected);
+                String actual = member.getPhoneNumber();
+                assertEquals(expected, actual);
+        }
+
+    @Test
+        public void TestGetProgramName() {
+                Member member = new Member();
+                String expected = "CPA";
+                member.setProgramName(expected);
+                String actual = member.getProgramName();
+                assertEquals(expected, actual);
+        }
+
+    @Test
+        public void TestGetYearLevel() {
+                Member member = new Member();
+                int expected = 3;
+                member.setYearLevel(expected);
+                int actual = member.getYearLevel();
+                assertEquals(expected, actual);
+        }
+
+        @Test
+        public void TestValidPositive() {
+                Member member = new Member();
+                String email = "JS@gmail.ca";
+                String fullname = "John Smith";
+                member.setEmailAddress(email);
+                member.setFullName(fullname);
+                member.isValid();
+                assertEquals(true, member.isValid());
+        }
+
+        @Test
+        public void TestValidNegative() {
+                Member member = new Member();
+                member.isValid();
+                assertEquals(false, member.isValid());
+        }
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }
