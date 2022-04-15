@@ -20,6 +20,8 @@
             <h1>Admin : Data Maintenance</h1>
              <div>
                  <a href="PLDTSHDisplayBooks" style="color:darkgreen;">Maintain Books</a>
+                 <a href="PLDTSHMemberAdmin" style="color:darkgreen;" name='action' value='displayMembers' method='GET'>Display Members</a>
+                 <a href="PLDTSHDisplayMembers.jsp">View All Users!!!</a>
              </div>
         </section>
     </body>

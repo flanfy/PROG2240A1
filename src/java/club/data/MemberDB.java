@@ -14,9 +14,9 @@ public class MemberDB {
         PreparedStatement ps = null;
 
         String query
-                = "INSERT INTO member (FullName, EmailAddress, PhoneNumber, "
+                = "INSERT INTO member (MemberID, FullName, EmailAddress, PhoneNumber, "
                 + "ProgramName, YearLevel) "
-                + "VALUES (?, ?, ?, ?, ?)";
+                + "VALUES (NULL, ?, ?, ?, ?, ?)";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, member.getFullName());
