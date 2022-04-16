@@ -55,29 +55,21 @@ public class PLDTSHMemberAdminController extends HttpServlet {
             throws ServletException, IOException {
         String url = "";
         String action = request.getParameter("action");
-        if (action == null) 
-        {
+        if (action == null) {
             action = "displayMembers";
         }
-        if (action == "displayMembers") 
-        {
+        if (action == "displayMembers") {
             url = "/PLDTSHDisplayMembers.jsp";
-        } 
-        else if (action.equals("addMember")) 
-        {
+        } else if (action.equals("addMember")) {
             url = "/PLDTSHAddMember.jsp";
-        } 
-        else if (action.equals("editMember")) 
-        {
+        } else if (action.equals("editMember")) {
             String email = request.getParameter("email");
             url = "/PLDTSHEditMember.jsp?email=" + email;
 
             Member member = MemberDB.selectMember(email);
             request.setAttribute("member", member);
 
-        } 
-        else if (action.equals("deleteMember")) 
-        {
+        } else if (action.equals("deleteMember")) {
             String email = request.getParameter("email");
             String fullName = request.getParameter("fullName");
             String phoneNumber = request.getParameter("phoneNumber");
@@ -105,18 +97,16 @@ public class PLDTSHMemberAdminController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException 
-    {
+            throws ServletException, IOException {
         String action = request.getParameter("action");
         String url = "";
         MemberDB memberDB = new MemberDB();
-        if (action.equals("saveMember")) 
-        {
+        if (action.equals("saveMember")) {
             // get parameters                                                                                                                                                                                                                                                                                                     equest
             String fullName = request.getParameter("fullName");
             String email = request.getParameter("emailAddress");
             String phone = request.getParameter("phoneNumber");
-            String program = request.getParameter("programName"); 
+            String program = request.getParameter("programName");
             int year = Integer.parseInt(request.getParameter("yearLevel"));
 
             // store data in User object
@@ -129,24 +119,19 @@ public class PLDTSHMemberAdminController extends HttpServlet {
             member.setYearLevel(year);
 
             // validate the parameters
-            String message = null;
+            String message;
             int i = 0;
-            if (fullName == null || email == null || phone == null || program == null
-                    || fullName.isEmpty() || email.isEmpty() || phone.isEmpty() || program.isEmpty()) 
-            {
+            if (fullName == null || email == null || phone == null
+                    || fullName.isEmpty() || email.isEmpty() || phone.isEmpty()) {
                 message = "Please fill out all three text boxes.";
                 url = "/PLDTSHAddMember.jsp";
-            }
-            else 
-            {
-                if(MemberDB.emailExists(email))
-                {
+            } else {
+                if (MemberDB.emailExists(email)) {
                     message = "Email exists - use a different one!";
                     url = "/PLDTSHAddMember.jsp";
-                }
-                else 
-                {
+                } else {
                     i = MemberDB.insert(member);
+                    message = "";
                     url = "/PLDTSHDisplayMembers.jsp";
                 }
             }
@@ -154,9 +139,7 @@ public class PLDTSHMemberAdminController extends HttpServlet {
             request.setAttribute("member", member);
             request.setAttribute("message", message);
             request.setAttribute("records", i);
-        }
-        else if (action.equals("updateMember")) 
-        {
+        } else if (action.equals("updateMember")) {
             String fullName = request.getParameter("fullName");
             String email = request.getParameter("email");
             String phone = request.getParameter("phoneNumber");
@@ -175,12 +158,10 @@ public class PLDTSHMemberAdminController extends HttpServlet {
             member.setPhoneNumber(phone);
             member.setProgramName(program);
             member.setYearLevel(year);
-            
+
             MemberDB.update(member);
             url = "/PLDTSHDisplayMembers.jsp";
-        }
-        else if (action.equals("deleteMember")) 
-        { 
+        } else if (action.equals("deleteMember")) {
             String email = request.getParameter("emailAddress");
             Member memberToDelete = MemberDB.selectMember(email);
             MemberDB.delete(memberToDelete);
