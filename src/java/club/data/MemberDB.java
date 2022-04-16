@@ -9,7 +9,8 @@ import java.util.logging.Logger;
 
 public class MemberDB {
 
-    public static int insert(Member member) {
+    public static int insert(Member member) 
+    {
         Connection con = DBUtil.getConnection();
         PreparedStatement ps = null;
 
@@ -31,7 +32,8 @@ public class MemberDB {
         }
     }
 
-    public static int update(Member member) {
+    public static int update(Member member) 
+    {
         Connection con = DBUtil.getConnection();
 
         PreparedStatement ps = null;
@@ -56,7 +58,8 @@ public class MemberDB {
         }
     }
 
-    public static int delete(Member member) {
+    public static int delete(Member member) 
+    {
         Connection con = DBUtil.getConnection();
 
         PreparedStatement ps = null;
@@ -74,7 +77,8 @@ public class MemberDB {
         }
     }
 
-    public static boolean emailExists(String emailAddress) {
+    public static boolean emailExists(String emailAddress) 
+    {
         Connection con = DBUtil.getConnection();
 
         PreparedStatement ps = null;
@@ -93,7 +97,8 @@ public class MemberDB {
         }
     }
 
-    public static Member selectMember(String emailAddress) {
+    public static Member selectMember(String emailAddress) 
+    {
         Connection con = DBUtil.getConnection();
 
         PreparedStatement ps = null;
@@ -121,7 +126,8 @@ public class MemberDB {
         }
     }
 
-    public static ArrayList<Member> selectMembers() {
+    public static ArrayList<Member> selectMembers() 
+    {
         Connection con = DBUtil.getConnection();
 
         PreparedStatement ps = null;

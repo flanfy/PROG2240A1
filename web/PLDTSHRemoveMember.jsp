@@ -18,19 +18,19 @@
 <body>
     <h1>Delete?</h1>
     <form action="PLDTSHMemberAdmin" method="post">
-        <input type="hidden" name="action" value="removeMember">        
+        <input type="hidden" name="action" value="deleteMember">        
         <label class="pad_top">Email:</label>
-        <input type="email" name="emailAddress" value="${member.emailAddress} disabled"><br>
+        <input type="email" name="emailAddress" value="${member.emailAddress}" disabled><br>
         <label class="pad_top">First Name:</label>
-        <input type="text" name="fullName" value="${member.fullName} disabled"><br>
+        <input type="text" name="fullName" value="${member.fullName}" disabled><br>
         <label class="pad_top">Phone Number:</label>
-        <input type="text" name="phoneNumber" value="${member.phoneNumber} disabled"><br>       
+        <input type="text" name="phoneNumber" value="${member.phoneNumber}" disabled><br>       
         <label class="pad_top">Program:</label>
-        <input type="text" name="programName" value="${member.programName} disabled"><br>   
+        <input type="text" name="programName" value="${member.programName}" disabled><br>   
         <label class="pad_top">Year:</label>
-        <input type="text" name="yearLevel" value="${member.yearLevel} disabled"><br>   
+        <input type="text" name="yearLevel" value="${member.yearLevel}" disabled><br>   
         <label>&nbsp;</label>
-        <input type="submit" value="Yes" class="margin_left">
+        <input type="submit" value="Delete" class="margin_left">
     </form>
 </body>
     <jsp:include page="footer.jsp"></jsp:include>

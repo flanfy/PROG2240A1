@@ -55,20 +55,35 @@ public class PLDTSHMemberAdminController extends HttpServlet {
             throws ServletException, IOException {
         String url = "";
         String action = request.getParameter("action");
-        if (action == null) {
+        if (action == null) 
+        {
             action = "displayMembers";
         }
-        if (action == "displayMembers") {
+        if (action == "displayMembers") 
+        {
             url = "/PLDTSHDisplayMembers.jsp";
-        } else if (action.equals("addMember")) {
+        } 
+        else if (action.equals("addMember")) 
+        {
             url = "/PLDTSHAddMember.jsp";
-        } else if (action.equals("editMember")) {
+        } 
+        else if (action.equals("editMember")) 
+        {
+            String email = request.getParameter("email");
+            url = "/PLDTSHEditMember.jsp?email=email";
 
+        } 
+        else if (action.equals("deleteMember")) 
+        {
             String email = request.getParameter("email");
-            url = "/PLDTSHEditMember.jsp?email=email";
-        } else if (action.equals("removeMember")) {
-            String email = request.getParameter("email");
-            url = "/PLDTSHEditMember.jsp?email=email";
+            String fullName = request.getParameter("fullName");
+            String phoneNumber = request.getParameter("phoneNumber");
+            String program = request.getParameter("program");
+            String year = request.getParameter("year");
+
+            Member member = MemberDB.selectMember(email);
+            request.setAttribute("member", member);
+            url = "/PLDTSHRemoveMember.jsp";
         }
 
 //        processRequest(request, response);
@@ -87,11 +102,13 @@ public class PLDTSHMemberAdminController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException 
+    {
         String action = request.getParameter("action");
         String url = "";
         MemberDB memberDB = new MemberDB();
-        if (action.equals("saveMember")) {
+        if (action.equals("saveMember")) 
+        {
             // get parameters from the request
             String fullName = request.getParameter("fullName");
             String email = request.getParameter("emailAddress");
@@ -101,7 +118,6 @@ public class PLDTSHMemberAdminController extends HttpServlet {
 
             // store data in User object
             Member member = new Member();
-//            MemberDB memberDB = new MemberDB();
 
             member.setFullName(fullName);
             member.setEmailAddress(email);
@@ -113,27 +129,42 @@ public class PLDTSHMemberAdminController extends HttpServlet {
             String message;
             int i = 0;
             if (fullName == null || email == null || phone == null || program == null
-                    || fullName.isEmpty() || email.isEmpty() || phone.isEmpty() || program.isEmpty()) {
+                    || fullName.isEmpty() || email.isEmpty() || phone.isEmpty() || program.isEmpty()) 
+            {
                 message = "Please fill out all three text boxes.";
                 url = "/PLDTSHAddMember.jsp";
-            } else {
+            }
+            else 
+            {
                 message = "";
                 url = "/PLDTSHDisplayMembers.jsp";
-                i = memberDB.insert(member);
-
+                i = MemberDB.insert(member);
             }
             request.setAttribute("member", member);
             request.setAttribute("message", message);
             request.setAttribute("records", i);
-        } else if (action.equals("updateMember")) {
+        } 
+        else if (action.equals("updateMember")) 
+        {
+            // this is called when a user clicks on edit button
+            //MemberDB.update(member)
+            url = "/PLDTSHDisplayMembers.jsp";
+        }
+        else if (action.equals("deleteMember")) 
+        { 
+            // Basically when using this line, and then passing the value into
+            // the db functions, itll give a null exception. So for some reason
+            // it's not accessing the parameters. When using a manually entered email 
+            // email it works, so we know that the db call is working.
 
-        } else if (action.equals("deleteMember")) {
-            int i = 0;
-//            i = memberDB.delete(member);
-            request.setAttribute("records", i);
+            //String email = request.getParameter("email");
+            String email = "asd@gmail.com";
+            System.out.println("Delete member: " + email);
+            Member memberToDelete = MemberDB.selectMember(email);
+            MemberDB.delete(memberToDelete);
+            url = "/PLDTSHDisplayMembers.jsp";
         }
 
-//        processRequest(request, response);
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);

@@ -36,7 +36,8 @@
                     Connection con = DBUtil.getConnection();
                     Statement statement = con.createStatement();
                     ResultSet resultSet = statement.executeQuery("Select * from member");
-                    while (resultSet.next()) {
+                    while (resultSet.next()) 
+                    {
                 %>
                 <tr>
                     <td>
@@ -65,9 +66,8 @@
                         %>
                     </td>
                     <td>
-                        <a href="PLDTSHMemberAdmin?action=edit&email=<%=resultSet.getString(3)%> ">Edit</a>
-                        <a href="PLDTSHMemberAdmin?action=delete&email=<%=resultSet.getString(3)%>">
-                            Remove</a>
+                        <a href="PLDTSHMemberAdmin?action=editMember&email=<%=resultSet.getString(3)%>">Edit</a>
+                        <a href="PLDTSHMemberAdmin?action=deleteMember&email=<%=resultSet.getString(3)%>">Remove</a>
                     </td>
                 </tr>
                 <%

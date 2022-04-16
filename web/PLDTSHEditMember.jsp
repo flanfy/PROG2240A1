@@ -12,8 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="UserServlet" method="post">
-            <input type="hidden" name="action" value="edit">
+        <form action="PLDTSHMemberAdmin" method="post">
+            <input type="hidden" name="action" value="updateMember">
             <label class="pad_top">User ID:</label>
             <%String email = request.getParameter("email");
                 out.println(email);%>
@@ -30,7 +30,7 @@
             <label class="pad_top">Year:</label>
             <input type="text" name="yearLevel" value="${member.yearLevel}"><br>   
             <label>&nbsp;</label>
-            <input type="submit" value="updateMember" class="margin_left">
+            <input type="submit" value="Update Member" class="margin_left">
         </form>
 
     </body>
