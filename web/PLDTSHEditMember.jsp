@@ -26,10 +26,18 @@
             <input type="text" name="fullName" value="${member.fullName}"><br>
             <label class="pad_top">Phone Number:</label>
             <input type="text" name="phoneNumber" value="${member.phoneNumber}"><br>       
-            <label class="pad_top">Program:</label>
-            <input type="text" name="programName" value="${member.programName}"><br>   
+            
+            <select name="programName" value="${member.programName}">
+                <option value="CP">CP</option>
+                <option value="CPA">CPA</option>
+                <option value="ITID">ITID</option>
+            </select>
             <label class="pad_top">Year:</label>
-            <input type="text" name="yearLevel" value="${member.yearLevel}"><br>   
+            <select name="yearLevel">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
             <label>&nbsp;</label>
             <input type="submit" value="Update Member" class="margin_left">
         </form>
