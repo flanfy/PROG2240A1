@@ -14,13 +14,11 @@
     <body>
         <form action="PLDTSHMemberAdmin" method="post">
             <input type="hidden" name="action" value="updateMember">
+            
             <label class="pad_top">User ID:</label>
-            <%String email = request.getParameter("email");
-                out.println(email);%>
-            <input type="hidden" name="email" value=<%=email%>>
+            <input type="text" name="email" value="${member.emailAddress}" disabled>
+            <input type="hidden" name="email" value=${member.emailAddress}>   
             <br>
-            <label class="pad_top">Email:</label>
-            <input type="email" name="emailAddress" value="${member.emailAddress}"><br>
             <label class="pad_top">First Name:</label>
             <input type="text" name="fullName" value="${member.fullName}"><br>
             <label class="pad_top">Phone Number:</label>

@@ -11,7 +11,7 @@ public class DBUtil
         String driver_class = "com.mysql.cj.jdbc.Driver";
         String URL = "jdbc:mysql://localhost:3306/memberdb";
         String username = "root";
-        String password = "password";
+        String password = "admin";
 
             Connection con = null;
 

@@ -24,7 +24,7 @@
         <input type="hidden" name="action" value="saveMember">        
         <label class="pad_top">Email:</label>
         <input type="email" name="emailAddress" value="${member.emailAddress}"><br>
-        <label class="pad_top">First Name:</label>
+        <label class="pad_top">Full Name:</label>
         <input type="text" name="fullName" value="${member.fullName}"><br>
         <label class="pad_top">Phone Number:</label>
         <input type="text" name="phoneNumber" value="${member.phoneNumber}"><br>       
@@ -37,7 +37,6 @@
         <br>
         <br>
         <a href="PLDTSHDisplayMembers.jsp">View All Users!!!</a><br>
-     
     </form>
 </body>
     <jsp:include page="footer.jsp"></jsp:include>

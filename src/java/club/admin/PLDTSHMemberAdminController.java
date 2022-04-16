@@ -70,7 +70,10 @@ public class PLDTSHMemberAdminController extends HttpServlet {
         else if (action.equals("editMember")) 
         {
             String email = request.getParameter("email");
-            url = "/PLDTSHEditMember.jsp?email=email";
+            url = "/PLDTSHEditMember.jsp?email=" + email;
+
+            Member member = MemberDB.selectMember(email);
+            request.setAttribute("member", member);
 
         } 
         else if (action.equals("deleteMember")) 
@@ -126,7 +129,7 @@ public class PLDTSHMemberAdminController extends HttpServlet {
             member.setYearLevel(year);
 
             // validate the parameters
-            String message;
+            String message = null;
             int i = 0;
             if (fullName == null || email == null || phone == null || program == null
                     || fullName.isEmpty() || email.isEmpty() || phone.isEmpty() || program.isEmpty()) 
@@ -136,30 +139,49 @@ public class PLDTSHMemberAdminController extends HttpServlet {
             }
             else 
             {
-                message = "";
-                url = "/PLDTSHDisplayMembers.jsp";
-                i = MemberDB.insert(member);
+                if(MemberDB.emailExists(email))
+                {
+                    message = "Email exists - use a different one!";
+                    url = "/PLDTSHAddMember.jsp";
+                }
+                else 
+                {
+                    i = MemberDB.insert(member);
+                    url = "/PLDTSHDisplayMembers.jsp";
+                }
             }
+
             request.setAttribute("member", member);
             request.setAttribute("message", message);
             request.setAttribute("records", i);
-        } 
+        }
         else if (action.equals("updateMember")) 
         {
-            // this is called when a user clicks on edit button
-            //MemberDB.update(member)
+            String fullName = request.getParameter("fullName");
+            String email = request.getParameter("email");
+            String phone = request.getParameter("phoneNumber");
+            String program = request.getParameter("programName");
+            int year = Integer.parseInt(request.getParameter("yearLevel"));
+
+            System.out.println("Full name: " + fullName);
+            System.out.println("Email: " + email);
+            System.out.println("phone " + phone);
+            System.out.println("program " + program);
+            System.out.println("year: " + year);
+
+            Member member = new Member();
+            member.setFullName(fullName);
+            member.setEmailAddress(email);
+            member.setPhoneNumber(phone);
+            member.setProgramName(program);
+            member.setYearLevel(year);
+            
+            MemberDB.update(member);
             url = "/PLDTSHDisplayMembers.jsp";
         }
         else if (action.equals("deleteMember")) 
         { 
-            // Basically when using this line, and then passing the value into
-            // the db functions, itll give a null exception. So for some reason
-            // it's not accessing the parameters. When using a manually entered email 
-            // email it works, so we know that the db call is working.
-
-            //String email = request.getParameter("email");
-            String email = "asd@gmail.com";
-            System.out.println("Delete member: " + email);
+            String email = request.getParameter("emailAddress");
             Member memberToDelete = MemberDB.selectMember(email);
             MemberDB.delete(memberToDelete);
             url = "/PLDTSHDisplayMembers.jsp";

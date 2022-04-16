@@ -18,7 +18,8 @@
 <body>
     <h1>Delete?</h1>
     <form action="PLDTSHMemberAdmin" method="post">
-        <input type="hidden" name="action" value="deleteMember">        
+        <input type="hidden" name="action" value="deleteMember">
+        <input type="hidden" name="emailAddress" value=${member.emailAddress}>              
         <label class="pad_top">Email:</label>
         <input type="email" name="emailAddress" value="${member.emailAddress}" disabled><br>
         <label class="pad_top">First Name:</label>
@@ -31,6 +32,9 @@
         <input type="text" name="yearLevel" value="${member.yearLevel}" disabled><br>   
         <label>&nbsp;</label>
         <input type="submit" value="Delete" class="margin_left">
+        <br>
+        <a href="PLDTSHDisplayMembers.jsp">Cancel</a>
+        
     </form>
 </body>
     <jsp:include page="footer.jsp"></jsp:include>
