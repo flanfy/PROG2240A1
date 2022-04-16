@@ -12,14 +12,17 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="PLDTSHMemberAdmin" method="post">
-            <input type="hidden" name="action" value="updateMember">
-            
-            <label class="pad_top">User ID:</label>
-            <input type="text" name="email" value="${member.emailAddress}" disabled>
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <jsp:include page="banner.jsp"></jsp:include>
+            </header>
+            <form action="PLDTSHMemberAdmin" method="post">
+                <input type="hidden" name="action" value="updateMember">
+
+                <label class="pad_top">User ID:</label>
+                <input type="text" name="email" value="${member.emailAddress}" disabled>
             <input type="hidden" name="email" value=${member.emailAddress}>   
             <br>
-            <label class="pad_top">First Name:</label>
+            <label class="pad_top">Full Name:</label>
             <input type="text" name="fullName" value="${member.fullName}"><br>
             <label class="pad_top">Phone Number:</label>
             <input type="text" name="phoneNumber" value="${member.phoneNumber}"><br>       
@@ -30,6 +33,6 @@
             <label>&nbsp;</label>
             <input type="submit" value="Update Member" class="margin_left">
         </form>
-
     </body>
+    <jsp:include page="footer.jsp"></jsp:include>
 </html>

@@ -112,11 +112,11 @@ public class PLDTSHMemberAdminController extends HttpServlet {
         MemberDB memberDB = new MemberDB();
         if (action.equals("saveMember")) 
         {
-            // get parameters from the request
+            // get parameters                                                                                                                                                                                                                                                                                                     equest
             String fullName = request.getParameter("fullName");
             String email = request.getParameter("emailAddress");
             String phone = request.getParameter("phoneNumber");
-            String program = request.getParameter("programName");
+            String program = request.getParameter("programName"); 
             int year = Integer.parseInt(request.getParameter("yearLevel"));
 
             // store data in User object
